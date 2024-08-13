@@ -1,1 +1,14 @@
 /* Add CSS Styling */
+/* No spaces between the selectors means properties will apply only if both selectors are present.
+
+If there is a space between the two selectors, the properties will apply to the second selector which is a descendant of the first selector. */
+
+.avatar.proportioned {
+    width: 300px;
+    height: auto;
+}
+
+.avatar.distorted {
+    width: 200px;
+    height: 400px;
+}
