@@ -1,42 +1,61 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .para,
 .small-para {
-  color: hsl(0, 0%, 0%);
-  font-weight: 800;
+    color: hsl(0, 0%, 0%);
+    font-weight: 800;
 }
 
-.small-para {
-  font-size: 14px;
-  font-weight: 800;
+/*
+Move the order of operation since both selectors have the same specificity level.  
+Another way is to use the chain-selector method such as p.small-para to give it more specificity.
+*/
+
+p.small-para {
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .para {
-  font-size: 22px;
+    font-size: 22px;
 }
 
-.confirm {
-  background: green;
-  color: white;
-  font-weight: bold;
-} 
+/* 
+Use chain selectors such as .button.confirm; move the .confirm selector below the .button selector so the former will take precedence over the latter; use the ID confirm-button for more specificity
+*/
+.button.confirm {
+    background: green;
+    color: white;
+    font-weight: bold;
+}
 
 .button {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
 }
 
-.child {
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 14px;
-}
+/*
+Use either chain selectors .text.child or descendent selectors .text .child
+Remove the .child selector and create the div.child selector to take advantage of the rule order of operation since both have the same level of specificity.
+*/
+
+/* .text.child {
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    font-size: 14px;
+} */
 
 div.text {
-  color: rgb(0, 0, 0);
-  font-size: 22px;
-  font-weight: 100;
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: 100;
+}
+
+div.child {
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    font-size: 14px;
 }
